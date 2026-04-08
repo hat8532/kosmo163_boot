@@ -19,7 +19,7 @@ public class DepartmentController {
 	private DepartmentService departmentService;
 	
 	@GetMapping("list")
-	public ModelAndView list(ModelAndView mv ) {    // spring에서 자동으로 request 객체를 만든다
+	public ModelAndView list(ModelAndView mv ) throws Exception {    // spring에서 자동으로 request 객체를 만든다
 		List<DepartmentDTO> ar = departmentService.list();
 		// request와 비슷한 역할, Spring이 제공
 		mv.addObject("list", ar);
@@ -45,39 +45,39 @@ public class DepartmentController {
 //	}
 	
 	@GetMapping("detail")
-	public String detail(@RequestParam(name="num") String num, Model model) {
-		DepartmentDTO departmentDTO = departmentService.detail(num);
+	public String detail(DepartmentDTO departmentDTO, Model model) throws Exception {
+		departmentDTO = departmentService.detail(departmentDTO);
 		
 		model.addAttribute("d", departmentDTO);
 		return "department/detail";
 	}
 	
 	@GetMapping("create")   // URL정보와 jsp의 정보가 같다면 void로 리턴
-	public void create() {
+	public void create() throws Exception {
 	}
 	
 	@PostMapping("create")
-	public String create(DepartmentDTO departmentDTO) {
+	public String create(DepartmentDTO departmentDTO) throws Exception {
 		int result = departmentService.create(departmentDTO);
 		//redirect 
 		return "redirect:./list";
 	}
 	
 	@PostMapping("delete")
-	public String delete(DepartmentDTO departmentDTO) {
+	public String delete(DepartmentDTO departmentDTO) throws Exception {
 		int result = departmentService.delete(departmentDTO);
 		
 		return "redirect:./list";
 	}
 	
 	@GetMapping("update")
-	public void update(DepartmentDTO departmentDTO, Model model) {
-		departmentDTO = departmentService.detail(departmentDTO.getDepartmentNo());
+	public void update(DepartmentDTO departmentDTO, Model model) throws Exception {
+		departmentDTO = departmentService.detail(departmentDTO);
 		model.addAttribute("d", departmentDTO);
 	}
 	
 	@PostMapping("update")
-	public String update(DepartmentDTO departmentDTO) {
+	public String update(DepartmentDTO departmentDTO) throws Exception {
 		int result = departmentService.update(departmentDTO);
 		
 		return "redirect:./list";
