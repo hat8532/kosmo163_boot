@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class DepartmentService {
 
 	@Autowired
-	private DepartmentDAO departmentDAO;
+	private DepartmentMapper departmentDAO;   // interface는 객체는 못만들지만 데이터 타입으로 사용 가능
 	
 	public List<DepartmentDTO> list() throws Exception{
 		return departmentDAO.list();
