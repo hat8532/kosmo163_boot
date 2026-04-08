@@ -23,9 +23,6 @@ public class ProfessorController {
 		model.addAttribute("list", ar);
 	}
 	
-	public void detail(ProfessorDTO professorDTO, Model model) throws Exception{
-		
-	}
-	
+
 	
 }
