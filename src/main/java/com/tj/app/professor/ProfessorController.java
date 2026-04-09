@@ -20,13 +20,13 @@ public class ProfessorController {
 	@GetMapping("list")
 	public void list(Model model) throws Exception {
 		List<ProfessorDTO> ar = professorService.list();
-		model.addAttribute("p", ar);
+		model.addAttribute("list", ar);
 	}
 	
 	@GetMapping("detail")
 	public void detail(ProfessorDTO professorDTO, Model model) throws Exception {
 		professorDTO = professorService.detail(professorDTO);
-		model.addAttribute("detail", professorDTO);
+		model.addAttribute("p", professorDTO);
 	}
 	
 	@GetMapping("create")

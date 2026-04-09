@@ -19,35 +19,36 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">교수 목록 Page</h1>
-
-					<!-- 테이블 DIV 시작 -->
-					<div class="row">
-						<div class="col-6">
-							<table class="table">
-								<thead class="thead-dark">
-									<tr>
-										<th>교수번호</th>
-										<th>교수명</th>
-										<th>학과번호</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${list}" var="p">
-										<tr>
-											<td><a href="./detail?professorNo=${p.professorNo}">${p.professorNo}</a>
-											</td>
-											<td>${p.professorName}</td>
-											<td>${p.departmentNo}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-
-						</div>
+					<h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+					<div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">교수번호</th>
+									<th scope="col">교수이름</th>
+									<th scope="col">주민번호</th>
+									<th scope="col">주소</th>
+									<th scope="col">학과번호</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>${p.professorNo}</td>
+									<td>${p.professorName}</td>
+									<td>${p.professorSsn}</td>
+									<td>${p.professorAddress}</td>
+									<td>${p.departmentNo}</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					<!-- 테이블 DIV 끝 -->
-
+					<div>
+					<a class="btn btn-outline-primary" href="./update?professorNo=${p.professorNo}">교수 수정</a>
+					<form action="./delete" method="post">
+					<input type="hidden" name="professorNo" value="${p.professorNo}">
+					<button class="btn btn-outline-primary">DELETE</button>
+					</form>
+					</div>
 				</div>
 				<!-- End Page container-fluid -->
 
@@ -60,6 +61,5 @@
 	<!-- End Wrapper -->
 
 	<c:import url="/WEB-INF/views/temp/footer_script.jsp"></c:import>
-
 </body>
 </html>

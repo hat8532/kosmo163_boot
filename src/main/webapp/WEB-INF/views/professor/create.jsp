@@ -23,24 +23,22 @@
 					<div>
 						<form method="post">
 							<div class="form-group">
+								<label for="professorNo">교수번호</label> <input type="text"
+									class="form-control" id="professorNo"
+									value="${p.professorNo}" name="professorNo"> <label
+									for="professorName">교수이름</label> <input type="text"
+									class="form-control" id="professorName"
+									value="${p.professorName}" name="professorName"> <label
+									for="professorSsn">주민번호</label> <input type="text"
+									class="form-control" id="professorSsn"
+									value="${p.professorSsn}" name="professorSsn"> <label
+									for="professorAddress">주소</label> <input type="text"
+									class="form-control" id="professorAddress"
+									value="${p.professorAddress}" name="professorAddress">
 								<label for="departmentNo">학과번호</label> <input type="text"
-									class="form-control" id="departmentNo" readonly value="${d.departmentNo}" name="departmentNo">
-
-								<label for="departmentName">학과이름</label> <input type="text"
-									class="form-control" id="departmentName" value="${d.departmentNo}" name="departmentName">
-
-								<label for="category">계열</label> <input type="text"
-									class="form-control" id="category" value="${d.category}" name="category"> <label
-									for="capacity">정원</label> <input type="number"
-									class="form-control" id="capacity" value="${d.capacity}" name="capacity"> <label>개설
-									여부</label>
-								<div class="form-check">
-									<input type="radio" checked name="openYn" id="openY" value="Y" checked>
-									<label for="openY">OPEN</label> <input type="radio"
-										name="openYn" id="openN" value="N"> <label for="openN">CLOSE</label>
-								</div>
+									class="form-control" id="departmentNo"
+									value="${p.departmentNo}" name="departmentNo">
 							</div>
-
 							<button type="submit" class="btn btn-primary">만들기</button>
 						</form>
 					</div>
